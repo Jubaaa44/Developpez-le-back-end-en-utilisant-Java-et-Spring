@@ -15,9 +15,13 @@ export class ListComponent {
   constructor(
     private sessionService: SessionService,
     private rentalsService: RentalsService
-  ) { }
+  ) {   this.rentals$.subscribe(data => {
+    console.log(data); // Ajoutez ceci pour voir la réponse
+  });}
 
   get user(): User | undefined {
     return this.sessionService.user;
   }
+
+
 }

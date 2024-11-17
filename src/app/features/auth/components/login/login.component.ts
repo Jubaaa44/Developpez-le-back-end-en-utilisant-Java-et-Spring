@@ -30,8 +30,13 @@ export class LoginComponent  {
     const loginRequest = this.form.value as LoginRequest;
     this.authService.login(loginRequest).subscribe(
       (response: AuthSuccess) => {
+        console.log("Login OK");
+        console.log(response);
         localStorage.setItem('token', response.token);
+        
+        
         this.authService.me().subscribe((user: User) => {
+          console.log("ME OK");
           this.sessionService.logIn(user);
           this.router.navigate(['/rentals'])
         });

@@ -48,6 +48,9 @@ export class DetailComponent implements OnInit {
       message: this.messageForm.value.message
     } as MessageRequest;
 
+    // Affichage dans la console des valeurs avant l'envoi
+  console.log("Message Object:", message);  
+
     this.messagesService.send(message).subscribe(
       (messageResponse: MessageResponse) => {
         this.initMessageForm();
